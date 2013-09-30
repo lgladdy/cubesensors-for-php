@@ -34,7 +34,8 @@ class CubeSensors {
   function requestOAuthToken($callback) {
     $params = array();
     $params['oauth_callback'] = $callback; 
-    $url = $this->signOAuthRequest($this->request_token_url, $params);
+    $url = $this->signOAuthRequest($this->request_token_url, $params, 'POST');
+    
     var_dump($url);
     echo "<br />";
     $call = $this->call($url);
@@ -48,14 +49,20 @@ class CubeSensors {
   }
   
   
-  function call($url,$params = false) {
+  function call($url) {
+    if (is_array($url) && isset($url['url']) && isset($url['data'])) {
+      //We've got an array containing url and data...
+      $params = $url['data'];
+      $url = $url['url'];
+    }
+    
     $this->last_response = array();
     $curl_object = curl_init();
     
     curl_setopt($curl_object, CURLOPT_USERAGENT, $this->user_agent);
     curl_setopt($curl_object, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl_object, CURLOPT_HEADERFUNCTION, array($this, 'processHeader'));
-    curl_setopt($curl_object, CURLOPT_HEADER, FALSE);                                        
+    curl_setopt($curl_object, CURLOPT_HEADER, FALSE);
     curl_setopt($curl_object, CURLOPT_HTTPHEADER, array('Accept: application/json'));
     curl_setopt($curl_object, CURLOPT_URL, $url);
     
