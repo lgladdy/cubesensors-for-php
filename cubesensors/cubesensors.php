@@ -35,7 +35,7 @@ class CubeSensors {
     $params = array();
     $params['oauth_callback'] = $callback; 
     $url = $this->signOAuthRequest($this->request_token_url, $params);
-    echo($url);
+    var_dump($url);
     echo "<br />";
     $call = $this->call($url);
     echo $call;
@@ -48,7 +48,7 @@ class CubeSensors {
   }
   
   
-  function call($url) {
+  function call($url,$params = false) {
     $this->last_response = array();
     $curl_object = curl_init();
     
@@ -58,6 +58,13 @@ class CubeSensors {
     curl_setopt($curl_object, CURLOPT_HEADER, FALSE);                                        
     curl_setopt($curl_object, CURLOPT_HTTPHEADER, array('Accept: application/json'));
     curl_setopt($curl_object, CURLOPT_URL, $url);
+    
+    if ($params) {
+      //Just incase we ever need POST
+      curl_setopt($curl_object, CURLOPT_POST, TRUE);
+      curl_setopt($curl_object, CURLOPT_POSTFIELDS, $params);
+    }
+    
     $response = curl_exec($curl_object);
     $this->last_response_code = curl_getinfo($curl_object, CURLINFO_HTTP_CODE);
     $this->last_response = array_merge($this->last_response, curl_getinfo($curl_object));
@@ -78,10 +85,16 @@ class CubeSensors {
 
   
   
-  function signOAuthRequest($url, $parameters) {
-    $request = OAuthRequest::from_consumer_and_token($this->consumer, $this->token, 'GET', $url, $parameters);
+  function signOAuthRequest($url, $parameters, $method = 'GET') {
+    $request = OAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $url, $parameters);
     $request->sign_request($this->sha1_method, $this->consumer, $this->token);
-    return $request->to_url();
+    if ($method == "POST") {
+      $r['url'] = $request->get_normalized_http_url();
+      $r['data'] = $request->to_postdata();
+      return $r;
+    } else {
+      return $request->to_url();
+    }
   }
   
 }
