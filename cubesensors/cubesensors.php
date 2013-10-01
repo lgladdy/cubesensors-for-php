@@ -13,6 +13,7 @@ require_once('OAuth.php');
 
 class CubeSensors {
   public $base_url = "http://api.cubesensors.com/";
+  public $api_base = "v1/";
   public $user_agent = 'CubeSensors for PHP v0.0.1';
   
   public $request_token_url = 'http://api.cubesensors.com/auth/request_token';
@@ -31,21 +32,47 @@ class CubeSensors {
   }
   
   
-  function requestOAuthToken($callback) {
+  function getOAuthRequestToken($callback) {
     $params = array();
     $params['oauth_callback'] = $callback; 
-    $url = $this->signOAuthRequest($this->request_token_url, $params, 'POST');
-    
-    var_dump($url);
-    echo "<br />";
+    $url = $this->signOAuthRequest($this->request_token_url, $params, 'GET');
     $call = $this->call($url);
-    echo $call;
-    echo "<br />";
-    $response = json_decode($call,true);
-    var_dump($response);
-    die();
-    $token = OAuthUtil::parse_parameters($response);
-    return $token;
+    if (json_decode($call,true)) {
+      //If we're here, it means we got a JSON failure object back from CubeSensors, and that's bad.
+      return json_decode($call,true);
+    } else {
+      $token = OAuthUtil::parse_parameters($call);
+      return $token;
+    }
+  }
+  
+  
+  function getOAuthAuthorizeURL($token) {
+    if (is_array($token)) $token = $token['oauth_token'];
+    return $this->authorize_url."?oauth_token={$token}";
+  }
+  
+  
+  function getOAuthAccessToken($oauth_verifier) {
+    $params = array();
+    $params['oauth_verifier'] = $oauth_verifier;
+    $url = $this->signOAuthRequest($this->access_token_url, $params, 'GET');
+    $call = $this->call($url);
+    if (json_decode($call,true)) {
+      //If we're here, it means we got a JSON failure object back from CubeSensors, and that's bad.
+      return json_decode($call,true);
+    } else {
+      $token = OAuthUtil::parse_parameters($call);
+      return $token;
+    }
+  }
+  
+  function get($url, $parameters = array()) {
+    $url = $this->base_url.$this->api_base.$url;
+    var_dump($url);
+    $url = $this->signOAuthRequest($url, $parameters);
+    $call = $this->call($url);
+    return json_decode($call,true);
   }
   
   
@@ -66,7 +93,7 @@ class CubeSensors {
     curl_setopt($curl_object, CURLOPT_HTTPHEADER, array('Accept: application/json'));
     curl_setopt($curl_object, CURLOPT_URL, $url);
     
-    if ($params) {
+    if (isset($params)) {
       //Just incase we ever need POST
       curl_setopt($curl_object, CURLOPT_POST, TRUE);
       curl_setopt($curl_object, CURLOPT_POSTFIELDS, $params);
@@ -89,8 +116,6 @@ class CubeSensors {
     }
     return strlen($header);
   }
-
-  
   
   function signOAuthRequest($url, $parameters, $method = 'GET') {
     $request = OAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $url, $parameters);
