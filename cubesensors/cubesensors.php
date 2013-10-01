@@ -69,8 +69,8 @@ class CubeSensors {
   
   function get($url, $parameters = array()) {
     $url = $this->base_url.$this->api_base.$url;
-    var_dump($url);
     $url = $this->signOAuthRequest($url, $parameters);
+    echo "[".time()."] Making a GET request to ".$url."<br />";
     $call = $this->call($url);
     return json_decode($call,true);
   }
