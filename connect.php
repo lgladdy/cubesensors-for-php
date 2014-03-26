@@ -20,7 +20,7 @@ if (isset($_GET['go'])) {
 
   $cube = new CubeSensors(CS_CONSUMER_KEY, CS_CONSUMER_SECRET);
   
-  $token = $cube->getOAuthRequestToken('http://cs.local/connect.php?response=true');
+  $token = $cube->getOAuthRequestToken(CS_RETURN_PATH);
   
   $_SESSION['oauth_token'] = $token['oauth_token'];
   $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
