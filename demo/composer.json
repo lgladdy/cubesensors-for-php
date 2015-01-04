@@ -8,7 +8,6 @@
             "email": "liam@gladdy.co.uk"
         }
     ],
-    "minimum-stability": "stable",
     "repositories": [
         {
             "type": "vcs",
@@ -16,10 +15,6 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
         "lgladdy/cubesensors": "dev-master"
-    },
-    "autoload": {
-        "psr-4": { "lgladdy\\CubeSensors\\": "src" }
     }
 }
