@@ -1,14 +1,22 @@
 {
     "name": "lgladdy/cubesensors",
     "description": "A CubeSensors API library for PHP",
+    "keywords": ["api", "cubesensors", "oauth", "php", "environment", "library"],
     "license": "Apache-2.0",
     "authors": [
         {
             "name": "Liam Gladdy",
-            "email": "liam@gladdy.co.uk"
+            "email": "liam@gladdy.co.uk",
+            "homepage": "http://gladdy.uk",
+            "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
+    "support": {
+        "email": "liam@gladdy.co.uk",
+        "source": "https://github.com/lgladdy/cubesensors-for-php",
+        "issues": "https://github.com/lgladdy/cubesensors-for-php/issues"
+    },
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0"
     },
