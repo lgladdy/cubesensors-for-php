@@ -1,5 +1,5 @@
 {
-    "name": "lgladdy/cubesensors/demo",
+    "name": "lgladdy/cubesensors-demo",
     "description": "A CubeSensors example application and usage of the lgladdy/cubesensors project",
     "license": "Apache-2.0",
     "authors": [
@@ -16,6 +16,6 @@
         }
     ],
     "require": {
-        "lgladdy/cubesensors": "dev-master"
+        "lgladdy/cubesensors": "dev-dev"
     }
 }

@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "c68126f725acd12d5273f99d98458b41",
+    "packages": [
+        {
+            "name": "lgladdy/cubesensors",
+            "version": "dev-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lgladdy/cubesensors-for-php.git",
+                "reference": "80b95b69c8a7260e0acd3f2a89bee61e5cf8ca6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lgladdy/cubesensors-for-php/zipball/80b95b69c8a7260e0acd3f2a89bee61e5cf8ca6d",
+                "reference": "80b95b69c8a7260e0acd3f2a89bee61e5cf8ca6d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lgladdy\\CubeSensors\\": "src"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Liam Gladdy",
+                    "email": "liam@gladdy.co.uk"
+                }
+            ],
+            "description": "A CubeSensors API library for PHP",
+            "support": {
+                "source": "https://github.com/lgladdy/cubesensors-for-php/tree/dev",
+                "issues": "https://github.com/lgladdy/cubesensors-for-php/issues"
+            },
+            "time": "2015-01-04 17:27:26"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "lgladdy/cubesensors": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
