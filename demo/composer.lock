@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lgladdy/cubesensors-for-php.git",
-                "reference": "1ab52b955c9e95afdde0258cc9152475b269b2cb"
+                "reference": "8d54bfee0b4ef87701b19154a308f78fe8793a90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lgladdy/cubesensors-for-php/zipball/1ab52b955c9e95afdde0258cc9152475b269b2cb",
-                "reference": "1ab52b955c9e95afdde0258cc9152475b269b2cb",
+                "url": "https://api.github.com/repos/lgladdy/cubesensors-for-php/zipball/8d54bfee0b4ef87701b19154a308f78fe8793a90",
+                "reference": "8d54bfee0b4ef87701b19154a308f78fe8793a90",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 "source": "https://github.com/lgladdy/cubesensors-for-php/tree/dev",
                 "issues": "https://github.com/lgladdy/cubesensors-for-php/issues"
             },
-            "time": "2015-01-04 17:48:53"
+            "time": "2015-01-04 17:51:02"
         }
     ],
     "packages-dev": [],

@@ -47,7 +47,7 @@ if (isset($_GET['go'])) {
     $_SESSION['oauth_token'] = $final_token['oauth_token'];
     $_SESSION['oauth_token_secret'] = $final_token['oauth_token_secret'];
     
-    header("Location: /");
+    header("Location: /demo/");
     exit();
     
   } else {

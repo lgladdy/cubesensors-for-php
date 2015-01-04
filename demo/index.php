@@ -24,7 +24,7 @@ foreach($devices['devices'] as $device) {
   $uid = $device['uid'];
   echo "<section style='width: 300px; float:left; padding: 5px; border: 1px solid #ccc; border-radius: 5px; margin-right: 20px; margin-bottom: 20px;' class='device' id='cube_".$uid."'>";
   //echo "<h3>Current data for cube: ".$device['name']." (".$uid.")</h3>";
-  echo "<h3 style='margin-top:0;padding-top:0'>Current data for cube: ".$device['name']."</h3>";
+  echo "<h3 style='margin-top:0;padding-top:0'>Current data for cube: ".$device['extra']['name']."</h3>";
   $current = $cube->get('devices/'.$uid.'/current');
   if ($current['ok']) {
     if (empty($current['results'])) {
