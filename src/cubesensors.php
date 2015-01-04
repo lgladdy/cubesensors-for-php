@@ -43,7 +43,7 @@ class CubeSensors {
       //If we're here, it means we got a JSON failure object back from CubeSensors, and that's bad.
       return json_decode($call,true);
     } else {
-      $token = OAuthUtil::parse_parameters($call);
+      $token = OAuth\OAuthUtil::parse_parameters($call);
       return $token;
     }
   }
@@ -64,7 +64,7 @@ class CubeSensors {
       //If we're here, it means we got a JSON failure object back from CubeSensors, and that's bad.
       return json_decode($call,true);
     } else {
-      $token = OAuthUtil::parse_parameters($call);
+      $token = OAuth\OAuthUtil::parse_parameters($call);
       return $token;
     }
   }
@@ -120,7 +120,7 @@ class CubeSensors {
   }
   
   function signOAuthRequest($url, $parameters, $method = 'GET') {
-    $request = OAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $url, $parameters);
+    $request = OAuth\OAuthRequest::from_consumer_and_token($this->consumer, $this->token, $method, $url, $parameters);
     $request->sign_request($this->sha1_method, $this->consumer, $this->token);
     if ($method == "POST") {
       $r['url'] = $request->get_normalized_http_url();
