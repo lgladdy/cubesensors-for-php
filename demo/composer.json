@@ -8,6 +8,7 @@
             "email": "liam@gladdy.co.uk"
         }
     ],
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "vcs",
