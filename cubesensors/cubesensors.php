@@ -10,7 +10,6 @@
 
 require_once('OAuth.php');
 
-
 class CubeSensors {
   public $base_url = "http://api.cubesensors.com/";
   public $api_base = "v1/";
