@@ -26,7 +26,7 @@ Alternatively, (or probably additionally!) check out /demo for an example of how
 
 Todo
 ----
-~~Make it a composer package.~~ Complete in Version 2.0
+Write tests.
 
 Version
 ----
