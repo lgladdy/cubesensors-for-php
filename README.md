@@ -12,9 +12,16 @@ Simply clone, or download the zip and drop the folder into your codebase, copy c
 
 Todo
 ----
-Make it a composer package.
+~~Make it a composer package.~~ Complete in Version 2.0
 
 Version
 ----
 
-1.0
+2.0
+
+Change Log
+----
+**2.0**
+
+- Made the library a composer compatible package
+- Switch everything to be namespace and use composer style package name (See the /demo folder for example usage)
