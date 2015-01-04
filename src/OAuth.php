@@ -1,5 +1,8 @@
 <?php
 // vim: foldmethod=marker
+// MIT License code from http://oauth.googlecode.com/svn/code/php/
+
+namespace lgladdy\CubeSensors\OAuth;
 
 /* Generic exception class
  */
