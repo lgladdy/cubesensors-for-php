@@ -1,0 +1,15 @@
+{
+    "name": "lgladdy/cubesensors",
+    "description": "A CubeSensors API library for PHP",
+    "require": {
+        "abraham/twitteroauth": "0.2.*"
+    },
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Liam Gladdy",
+            "email": "liam@gladdy.co.uk"
+        }
+    ],
+    "minimum-stability": "stable"
+}
