@@ -1,8 +1,10 @@
 <?php
 
+require "vendor/autoload.php";
+use lgladdy\CubeSensors\CubeSensors;
+
 date_default_timezone_set("Europe/London");
 require('config.php');
-require('cubesensors/cubesensors.php');
 session_start();
 
 if ((!isset($_SESSION['oauth_complete']) || !$_SESSION['oauth_complete']) && !defined('AUTHED_KEY')) {

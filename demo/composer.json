@@ -1,0 +1,25 @@
+{
+    "name": "lgladdy/cubesensors/demo",
+    "description": "A CubeSensors example application and usage of the lgladdy/cubesensors project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Liam Gladdy",
+            "email": "liam@gladdy.co.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/lgladdy/cubesensors-for-php"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "lgladdy/cubesensors": "dev-master"
+    },
+    "autoload": {
+        "psr-4": { "lgladdy\\CubeSensors\\": "src" }
+    }
+}
