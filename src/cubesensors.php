@@ -8,6 +8,8 @@
  ** Liam Gladdy (@lgladdy) liam@gladdy.co.uk
  */
 
+namespace lgladdy\CubeSensors;
+
 require_once('OAuth.php');
 
 class CubeSensors {
