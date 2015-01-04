@@ -8,7 +8,7 @@ require('config.php');
 session_start();
 
 if ((!isset($_SESSION['oauth_complete']) || !$_SESSION['oauth_complete']) && !defined('AUTHED_KEY')) {
-  header("Location: /connect.php?unauthenticated=true");
+  header("Location: /demo/connect.php?unauthenticated=true");
   exit();
 }
 

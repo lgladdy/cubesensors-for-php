@@ -7,7 +7,7 @@ namespace lgladdy\CubeSensors\OAuth;
 /* Generic exception class
  */
 if (!class_exists('OAuthException')) {
-  class OAuthException extends Exception {
+  class OAuthException extends \Exception {
     // pass
   }
 }

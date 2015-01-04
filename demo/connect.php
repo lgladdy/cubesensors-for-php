@@ -1,6 +1,8 @@
 <?php
 
-require('cubesensors/cubesensors.php');
+require "vendor/autoload.php";
+use lgladdy\CubeSensors\CubeSensors;
+
 require('config.php');
 session_start();
 
