@@ -12,7 +12,7 @@ Use [Composer](https://getcomposer.org) to import the package:
 ```
 "require": {
 	"php": ">=5.4.0",
-	"lgladdy/cubesensors": "v2.0.0" // Or "dev-master" if you want the latest code.
+	"lgladdy/cubesensors": "v2.0.1" // Or "dev-master" if you want the latest code.
 }
 ```
 
@@ -31,10 +31,14 @@ Write tests.
 Version
 ----
 
-2.0
+2.0.1
 
 Change Log
 ----
+**2.0.1**
+
+- This release hopefully fixes a bug with case sensitive file systems not being able to load the class.
+
 **2.0**
 
 - Made the library a composer compatible package

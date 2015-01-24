@@ -16,7 +16,7 @@ require_once('OAuth.php');
 class CubeSensors {
   public $base_url = "http://api.cubesensors.com/";
   public $api_base = "v1/";
-  public $user_agent = 'CubeSensors for PHP v0.0.1';
+  public $user_agent = 'CubeSensors for PHP v2.0.1';
   
   public $request_token_url = 'http://api.cubesensors.com/auth/request_token';
   public $authorize_url = 'http://api.cubesensors.com/auth/authorize';
